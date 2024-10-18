@@ -59,7 +59,7 @@ async def test_tt_um_Richard28277(dut):
                         assert dut.uo_out.value == a_val ^ b_val  
                     case 7: #not 
                         display_result("NOT")
-                        assert dut.uo_out.value == ~a_val 
+                        assert dut.uo_out.value == ~a_val&0b1111 
                     case 8: #encode
                         display_result("ENC")
                         assert dut.uo_out.value == ((a_val << 4) | b_val) ^ encryption_key
