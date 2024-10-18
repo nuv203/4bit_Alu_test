@@ -9,8 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-It's a Koggee stone adder
-
+It's a 4bit_alu
 ## How to test
 
 I used test.py
