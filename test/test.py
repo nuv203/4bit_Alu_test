@@ -47,7 +47,7 @@ async def test_tt_um_Richard28277(dut):
                         assert dut.uo_out.value == a_val * b_val 
                     case 3: #div
                         display_result("DIV")
-                        assert dut.uo_out.value == ((a_val % b_val) << 4) | (a_val//b_val)  
+                        assert dut.uo_out.value == ((a_val % b_val) << 4) | (a_val//b_val)  if b_val != 0 else 0
                     case 4: #and
                         display_result("AND")
                         assert dut.uo_out.value == a_val & b_val  
