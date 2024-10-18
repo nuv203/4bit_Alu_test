@@ -4,11 +4,13 @@ from cocotb.clock import Clock
 
 @cocotb.test()
 
-# Helper function to display results
-def display_result(op_name, dut):
-    print(f"{op_name}: result = {dut.uo_out.value}, uio_out = {dut.uio_out.value}")
+
 
 async def test_tt_um_Richard28277(dut):
+    
+    # Helper function to display results
+    def display_result(op_name):
+        print(f"{op_name}: result = {dut.uo_out.value}, uio_out = {dut.uio_out.value}")
     # Clock generation
 
     encryption_key = 0xAB
@@ -35,36 +37,30 @@ async def test_tt_um_Richard28277(dut):
                 await Timer(50, units='ns')
                 match opcodes[i]: 
                     case 0: #add
-                        display_result("ADD",dut)
+                        display_result("ADD")
                         assert dut.uo_out.value == a_val + b_val  
                     case 1: #sub
-                        display_result("SUB",dut)
+                        display_result("SUB")
                         assert dut.uo_out.value == a_val - b_val  
                     case 2: #mul
-                        display_result("MUL",dut)
+                        display_result("MUL")
                         assert dut.uo_out.value == a_val * b_val  
                     case 3: #div
-                        display_result("DIV",dut)
+                        display_result("DIV")
                         assert dut.uo_out.value == ((a_val % b_val) << 4) | (a_val//b_val)  
                     case 4: #and
-                        display_result("AND",dut)
+                        display_result("AND")
                         assert dut.uo_out.value == a_val & b_val  
                     case 5: #or
-                        display_result("OR",dut)
+                        display_result("OR")
                         assert dut.uo_out.value == a_val | b_val  
                     case 6: #xor
-                        display_result("XOR",dut)
+                        display_result("XOR")
                         assert dut.uo_out.value == a_val ^ b_val  
                     case 7: #not 
-                        display_result("NOT",dut)
+                        display_result("NOT")
                         assert dut.uo_out.value == ~a_val 
                     case 8: #encode
-                        display_result("ENC",dut)
+                        display_result("ENC")
                         assert dut.uo_out.value == ((a_val << 4) | b_val) ^ encryption_key
                
-
-    
-    
-
-
-
