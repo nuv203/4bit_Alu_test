@@ -32,7 +32,7 @@ async def test_tt_um_Richard28277(dut):
     for i in range(len(opcodes)): 
         for a_val in a: 
             for b_val in b: 
-                dut.ui_in.value = a_val<<4 + b_val 
+                dut.ui_in.value = a_val<<4 | b_val 
                 dut.uio_in.value = opcodes[i]   
                 await Timer(50, units='ns')
                 match opcodes[i]: 
@@ -64,3 +64,9 @@ async def test_tt_um_Richard28277(dut):
                         display_result("ENC")
                         assert dut.uo_out.value == ((a_val << 4) | b_val) ^ encryption_key
                
+
+    
+    
+
+
+
