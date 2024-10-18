@@ -38,10 +38,10 @@ async def test_tt_um_Richard28277(dut):
                 match opcodes[i]: 
                     case 0: #add
                         display_result("ADD")
-                        assert dut.uo_out.value == a_val + b_val % 16
+                        assert dut.uo_out.value == (a_val + b_val) % 16
                     case 1: #sub
                         display_result("SUB")
-                        assert dut.uo_out.value == a_val - b_val % 16
+                        assert dut.uo_out.value == (a_val - b_val) % 16
                     case 2: #mul
                         display_result("MUL")
                         assert dut.uo_out.value == a_val * b_val 
