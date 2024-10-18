@@ -35,31 +35,31 @@ async def test_tt_um_Richard28277(dut):
                 await Timer(50, units='ns')
                 match opcodes[i]: 
                     case 0: #add
-                        display_result("ADD",dut = dut)
+                        display_result("ADD",dut)
                         assert dut.uo_out.value == a_val + b_val  
                     case 1: #sub
-                        display_result("SUB",dut = dut)
+                        display_result("SUB",dut)
                         assert dut.uo_out.value == a_val - b_val  
                     case 2: #mul
-                        display_result("MUL",dut = dut)
+                        display_result("MUL",dut)
                         assert dut.uo_out.value == a_val * b_val  
                     case 3: #div
-                        display_result("DIV",dut = dut)
+                        display_result("DIV",dut)
                         assert dut.uo_out.value == ((a_val % b_val) << 4) | (a_val//b_val)  
                     case 4: #and
-                        display_result("AND",dut = dut)
+                        display_result("AND",dut)
                         assert dut.uo_out.value == a_val & b_val  
                     case 5: #or
-                        display_result("OR",dut = dut)
+                        display_result("OR",dut)
                         assert dut.uo_out.value == a_val | b_val  
                     case 6: #xor
-                        display_result("XOR",dut = dut)
+                        display_result("XOR",dut)
                         assert dut.uo_out.value == a_val ^ b_val  
                     case 7: #not 
-                        display_result("NOT",dut = dut)
+                        display_result("NOT",dut)
                         assert dut.uo_out.value == ~a_val 
                     case 8: #encode
-                        display_result("ENC",dut = dut)
+                        display_result("ENC",dut)
                         assert dut.uo_out.value == ((a_val << 4) | b_val) ^ encryption_key
                
 
